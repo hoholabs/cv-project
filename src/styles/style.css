@@ -14,7 +14,22 @@
     border:solid green 2px;
     display:grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    
+}
+
+h1{
+    color:darkblue;   
+    grid-column-start:1;
+    grid-column-end:-1;
+}
+
+.education-card{
+    border:solid saddlebrown 2px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-start:1;
+    grid-column-end:-1;
 }
 .school{
     align-items:end;
@@ -33,6 +48,22 @@
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr;
 }
+.add{
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    position: absolute;
+    grid-area: 1/1;
+    text-align: center;
+    height: 2em;
+    width: 2em;
+    color: white;
+    background-color: grey;
+    border: none;
+    border-radius: .2em;
+    right:0;
+}
+
 
 .edit{
     font-family: 'Material Icons';
@@ -48,5 +79,4 @@
     border: none;
     border-radius: .2em;
     left:0;
-
 }

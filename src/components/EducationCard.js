@@ -6,7 +6,7 @@ const EducationCard = (props) =>{
                 <div className = 'school'>{props.school}</div>
                 <div className = 'program'>{props.program}</div>
                 <div className = 'dates'>{props.dates}</div>
-                <button id = 'edit-education' className = 'edit'>edito</button>
+                <button id = 'edit-education' className = 'edit'>edit</button>
         </div>
 
 }

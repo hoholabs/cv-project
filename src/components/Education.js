@@ -5,34 +5,39 @@ class Education extends Component{
     constructor(){
         super()
         this.state = {
-            cards:{
-
-            },
-            card:{
+            cards:[
+                {
                 school:'test school',
+                program:'map program',
+                dates:'dates',
+                key:1,
+                },
+                {
+                    school:'test school',
+                    program:'map program',
+                    dates:'dates2',
+                    key:2,
+                    }
+
+            ],
+            card:{
+                school:'school',
                 program:'program',
                 dates:'dates',
+                key:new Date().getTime(),
             }
 
         }
     }
     render (){
 
-        // const displayCards = this.state.cards.map((card) => {
-		// 	return <educationCard school={card.school} program={card.program} dates={card.dates}/>
-		// })
 
         return  <div id = 'education'>  
                     <h1>Education</h1>
-                    {/* {displayCards} */}
-                    <EducationCard school={this.state.card.school} program={this.state.card.program} dates={this.state.card.dates}/>
-
-
-                    {/* <div className = 'school'>school</div>
-                    <div className = 'program'>program</div>
-                    <div className = 'education-date'>date</div>
-                    <button id = 'edit-education' className = 'edit'>edit</button> */}
-
+                    <button id = 'add-education' className = 'add'>add</button> 
+                    {this.state.cards.map((card) =>{
+			            return   <EducationCard school={card.school} program={card.program} dates={card.dates} key={card.key}/>
+                    })}
                 </div>
         }
 }
