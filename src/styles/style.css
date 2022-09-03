@@ -1,7 +1,23 @@
+#app{
+    border: solid chartreuse 2px;
+    display:grid;
+    grid-template-columns: 1fr;
+
+    width: 80vw;
+    margin:auto;
+    margin-top: 1vw;
+}
+
+section{
+    color: red;
+    display: grid;
+    grid-template-columns: 2em 1fr 2em;;
+}
+
 #personal{
     border: solid red 2px;
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2em 1fr 1fr 1fr 2em;
     grid-template-rows: 1fr 1fr;
 }
     #name{
@@ -9,59 +25,71 @@
         grid-column-start: 2;
         border: solid lightblue 2px;
     }
-    
-#education{
-    border:solid green 2px;
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    
-}
 
 h1{
     color:darkblue;   
-    grid-column-start:1;
-    grid-column-end:-1;
+    grid-column-start:2;
+    grid-column-end:-2;
+}
+
+#education{
+    border:solid green 2px;
+    display:grid;
+    /* grid-template-columns: 1fr 2em; */
+    width: 80vw;
 }
 
 .education-card{
     border:solid saddlebrown 2px;
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2em 1fr 2em;
     grid-template-rows: 1fr;
     grid-column-start:1;
     grid-column-end:-1;
+    height: 3em;
 }
-.school{
-    align-items:end;
+.education-details{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-start:1;
+    grid-column-end:-2;
 }
 
-.program{
-    align-items: center;
-}
-
-.education-date{
-    align-items: start;
-}
 #experience{
     border: solid orange 2px;
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 2em 1fr 1fr 1fr 1fr 2em;
     grid-template-rows: 1fr 1fr;
 }
-.add{
+.experience-card{
+    border:solid rgb(112, 104, 170) 2px;
+    display:grid;
+    grid-template-columns: 2em 1fr 2em;
+    grid-template-rows: 1fr;
+    grid-column-start:1;
+    grid-column-end:-1;
+    height: 3em;
+}
+.experience-details{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-column-start:1;
+    grid-column-end:-2;
+}
+
+.material-icon{
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
-    position: absolute;
-    grid-area: 1/1;
     text-align: center;
     height: 2em;
     width: 2em;
     color: white;
-    background-color: grey;
+    background-color: green;
     border: none;
     border-radius: .2em;
-    right:0;
 }
 
 
@@ -69,8 +97,8 @@ h1{
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
-    position: absolute;
-    grid-area: 1/1;
+
+    /* grid-area: 1/1; */
     text-align: center;
     height: 2em;
     width: 2em;
@@ -78,5 +106,6 @@ h1{
     background-color: grey;
     border: none;
     border-radius: .2em;
-    left:0;
+    /* position: relative; */
+    right:0;
 }

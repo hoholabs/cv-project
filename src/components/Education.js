@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import EducationCard from './EducationCard'
 
+
 class Education extends Component{
     constructor(){
         super()
@@ -25,20 +26,33 @@ class Education extends Component{
                 program:'program',
                 dates:'dates',
                 key:new Date().getTime(),
-            }
+            },
+            editing: false,
 
         }
     }
     render (){
 
-
-        return  <div id = 'education'>  
+        return  <section id = 'education'>  
                     <h1>Education</h1>
-                    <button id = 'add-education' className = 'add'>add</button> 
+                    <button className = 'material-icon'>edit</button> 
+
+                    {/* returns all of the education cards, using the state cards */}
                     {this.state.cards.map((card) =>{
-			            return   <EducationCard school={card.school} program={card.program} dates={card.dates} key={card.key}/>
+			            return  <div className = 'education-card'>    
+                                    <EducationCard school={card.school} program={card.program} dates={card.dates} key={card.key}/>
+                                    <button className = 'material-icon'>edit</button> 
+                                </div>
                     })}
-                </div>
+                    <div className = 'education-card'>
+                        <form className = 'education-details'>
+                            <input placeholder = 'school'></input>
+                            <input placeholder = 'program'></input>
+                            <input placeholder = 'dates'></input>
+                        </form>
+                        <button className = 'material-icon'>add_circle</button> 
+                    </div>
+                </section>
         }
 }
 

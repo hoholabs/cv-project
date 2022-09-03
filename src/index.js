@@ -4,8 +4,6 @@ import './index.css';
 import './styles/style.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"></link>
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

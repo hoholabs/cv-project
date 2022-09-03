@@ -6,11 +6,11 @@ import WorkExperience from './components/WorkExperience';
 
 function App() {
   return (
-    <div className="App">
+    <div id="app">
       <PersonalInfo/>
-      {/* <h1>Education</h1> */}
+
       <Education/>
-      <h1>Experience</h1>
+
       <WorkExperience/>
     </div>
   );
