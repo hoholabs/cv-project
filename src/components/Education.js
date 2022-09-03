@@ -68,7 +68,7 @@ class Education extends Component{
                     {this.state.cards.map((card) =>{
 			            return  <div key = {card.key+'-container'} className = 'education-card'>    
                                     <EducationCard school={card.school} program={card.program} dates={card.dates} key = {card.key}/>
-                                    <button className = 'material-icon' key = {card.key+'-button'}>edit</button> 
+                                    {this.state.editing && (<button className = 'material-icon' key = {card.key+'-button'}>edit</button>)}
                                 </div>
                     })}
                     {this.state.editing && (
