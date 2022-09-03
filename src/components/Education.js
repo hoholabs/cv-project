@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import EducationCard from './EducationCard'
 
-
 class Education extends Component{
     constructor(){
         super()
@@ -14,10 +13,21 @@ class Education extends Component{
                 key: '',
             },
             editing: false,
+            buttonLabel: 'edit',
         }
 
+        this.editEducation = this.editEducation.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+    }
+
+    editEducation = () =>{
+        
+        this.setState({
+            editing:!this.state.editing,
+            buttonLabel: this.state.buttonLabel === 'edit' ? 'check' : 'edit'
+        })
+        console.log(this.state.buttonLabel);
     }
 
     handleChange = (event) =>{
@@ -46,14 +56,13 @@ class Education extends Component{
                 key:new Date().getTime(),
             }
         }))
-        console.log(this.state.card);
     }
 
     render (){
 
         return  <section id = 'education'>  
                     <h1>Education</h1>
-                    <button className = 'material-icon'>edit</button> 
+                    <button className = 'material-icon' onClick = {this.editEducation}>{this.state.buttonLabel}</button> 
 
                     {/* returns all of the education cards, using the state cards */}
                     {this.state.cards.map((card) =>{
@@ -62,32 +71,34 @@ class Education extends Component{
                                     <button className = 'material-icon' key = {card.key+'-button'}>edit</button> 
                                 </div>
                     })}
-                    <div className = 'education-card'>
-                        <form className = 'education-details'>
-                            <input 
-                                type = 'text'
-                                placeholder = 'school' 
-                                name = 'school' 
-                                value={this.state.card.school}
-                                onChange = {this.handleChange}>
-                            </input>
-                            <input 
-                                type = 'text'   
-                                placeholder = 'program' 
-                                name = 'program'
-                                value={this.state.card.program}
-                                onChange = {this.handleChange}>
-                            </input>
-                            <input 
-                                type = 'text'   
-                                placeholder = 'dates' 
-                                name = 'dates' 
-                                value={this.state.card.dates}
-                                onChange = {this.handleChange}>
-                            </input>
-                        </form>
-                        <button className = 'material-icon' onClick = {this.handleSubmit}>add_circle</button>   
-                    </div>
+                    {this.state.editing && (
+                        <div id = 'new-education-card' className = 'education-card'>
+                            <form className = 'education-details'>
+                                <input 
+                                    type = 'text'
+                                    placeholder = 'school' 
+                                    name = 'school' 
+                                    value={this.state.card.school}
+                                    onChange = {this.handleChange}>
+                                </input>
+                                <input 
+                                    type = 'text'   
+                                    placeholder = 'program' 
+                                    name = 'program'
+                                    value={this.state.card.program}
+                                    onChange = {this.handleChange}>
+                                </input>
+                                <input 
+                                    type = 'text'   
+                                    placeholder = 'dates' 
+                                    name = 'dates' 
+                                    value={this.state.card.dates}
+                                    onChange = {this.handleChange}>
+                                </input>
+                            </form>
+                            <button className = 'material-icon' onClick = {this.handleSubmit}>add_circle</button> 
+                        </div>
+                    )}
                 </section>
         }
 }
