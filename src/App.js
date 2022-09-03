@@ -2,7 +2,7 @@
 import './App.css';
 import PersonalInfo from './components/PersonalInfo'
 import Education from './components/Education'
-import WorkExperience from './components/WorkExperience';
+import Experience from './components/Experience';
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
 
       <Education/>
 
-      <WorkExperience/>
+      <Experience/>
     </div>
   );
 }

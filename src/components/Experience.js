@@ -1,7 +1,7 @@
 import React from 'react'
 import {Component} from 'react'
 
-class WorkExperience extends Component{
+class Experience extends Component{
     render(){
         return  <section id = 'experience'>
                     <h1>Experience</h1>
@@ -17,4 +17,4 @@ class WorkExperience extends Component{
                 </section>
     }
 }
-export default WorkExperience
+export default Experience
