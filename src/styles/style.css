@@ -1,9 +1,52 @@
 #personal{
     border: solid red 2px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
 }
+    #name{
+        color:green;
+        grid-column-start: 2;
+        border: solid lightblue 2px;
+    }
+    
 #education{
     border:solid green 2px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.school{
+    align-items:end;
+}
+
+.program{
+    align-items: center;
+}
+
+.education-date{
+    align-items: start;
 }
 #experience{
-    border: solid blue 2px;
+    border: solid orange 2px;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+
+.edit{
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    position: absolute;
+    grid-area: 1/1;
+    text-align: center;
+    height: 2em;
+    width: 2em;
+    color: white;
+    background-color: grey;
+    border: none;
+    border-radius: .2em;
+    left:0;
+
 }
