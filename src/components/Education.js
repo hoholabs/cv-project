@@ -10,13 +10,15 @@ class Education extends Component{
                 school: '',
                 program: '',
                 dates: '',
-                key: '',
+                key: new Date().getTime(),
+                editingCard: false
             },
-            editing: false,
+            editingSection: false,
             buttonLabel: 'edit',
         }
 
         this.editEducation = this.editEducation.bind(this);
+        this.editCard = this.editCard.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
@@ -24,10 +26,40 @@ class Education extends Component{
     editEducation = () =>{
         
         this.setState({
-            editing:!this.state.editing,
+            editingSection:!this.state.editingSection,
             buttonLabel: this.state.buttonLabel === 'edit' ? 'check' : 'edit'
         })
-        console.log(this.state.buttonLabel);
+    }
+
+    editCard = (event, key) =>{
+
+        const cards = this.state.cards;
+        const index = cards.findIndex(card => {
+            return card.key === key;
+          });
+        const card = cards[index];
+
+
+        if(card.editingCard === true){
+            card.editingCard = false;
+        }else{
+            card.editingCard = true
+        }
+
+        cards[index]=card;
+
+        if(event.target.textContent === 'edit'){
+            event.target.textContent = 'check'
+        }else{
+            event.target.textContent = 'edit'
+        }
+
+        this.setState({
+            cards
+        });
+
+        
+
     }
 
     handleChange = (event) =>{
@@ -46,7 +78,6 @@ class Education extends Component{
 
     handleSubmit = (event) =>{
         event.preventDefault();
-        console.log(this.state.cards);
         this.setState(prevState =>({
             cards:[...prevState.cards, this.state.card],
             card:{
@@ -54,6 +85,7 @@ class Education extends Component{
                 program:'',
                 dates:'',
                 key:new Date().getTime(),
+                editingCard: false,
             }
         }))
     }
@@ -66,12 +98,22 @@ class Education extends Component{
 
                     {/* returns all of the education cards, using the state cards */}
                     {this.state.cards.map((card) =>{
-			            return  <div key = {card.key+'-container'} className = 'education-card'>    
-                                    <EducationCard school={card.school} program={card.program} dates={card.dates} key = {card.key}/>
-                                    {this.state.editing && (<button className = 'material-icon' key = {card.key+'-button'}>edit</button>)}
+			            return  <div key = {card.key+'-container'} className = 'education-card'>
+                                    
+                                    {!card.editing &&
+                                    <EducationCard school={card.school} program={card.program} dates={card.dates} key={card.key} editingCard = {card.editingCard}/>
+                                    }
+
+                                    {/* edit button */}
+                                    {this.state.editingSection && (
+                                        <button 
+                                        onClick = {event => this.editCard(event, card.key)} 
+                                        className = 'material-icon' 
+                                        key = {card.key+'-button'}
+                                        >edit</button>)}
                                 </div>
                     })}
-                    {this.state.editing && (
+                    {this.state.editingSection && (
                         <div id = 'new-education-card' className = 'education-card'>
                             <form className = 'education-details'>
                                 <input 
