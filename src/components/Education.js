@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import EducationCard from './EducationCard'
 
 class Education extends Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             cards:[],
             card:{
@@ -39,7 +39,6 @@ class Education extends Component{
           });
         const card = cards[index];
 
-
         if(card.editingCard === true){
             card.editingCard = false;
         }else{
@@ -57,8 +56,6 @@ class Education extends Component{
         this.setState({
             cards
         });
-
-        
 
     }
 
@@ -101,7 +98,38 @@ class Education extends Component{
 			            return  <div key = {card.key+'-container'} className = 'education-card'>
                                     
                                     {!card.editing &&
-                                    <EducationCard school={card.school} program={card.program} dates={card.dates} key={card.key} editingCard = {card.editingCard}/>
+                                    <EducationCard 
+                                        school={card.school} 
+                                        program={card.program} 
+                                        dates={card.dates} 
+                                        key={card.key} 
+                                        editingCard = {card.editingCard}/>
+                                    }
+
+                                    {card.editing &&
+                                        <form className = 'education-details'>
+                                        <input 
+                                            type = 'text'
+                                            placeholder = 'school' 
+                                            name = 'school' 
+                                            value={this.state.card.school}
+                                            onChange = {this.handleChange}>
+                                        </input>
+                                        <input 
+                                            type = 'text'   
+                                            placeholder = 'program' 
+                                            name = 'program'
+                                            value={this.state.card.program}
+                                            onChange = {this.handleChange}>
+                                        </input>
+                                        <input 
+                                            type = 'text'   
+                                            placeholder = 'dates' 
+                                            name = 'dates' 
+                                            value={this.state.card.dates}
+                                            onChange = {this.handleChange}>
+                                        </input>
+                                    </form>
                                     }
 
                                     {/* edit button */}
