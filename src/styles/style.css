@@ -8,8 +8,6 @@
     margin-top: 1vw;
 }
 
-
-
 ul{
     list-style-type: none;
 }
@@ -36,17 +34,17 @@ h1{
 #education{
     border:solid green 2px;
     display:grid;
-    /* grid-template-columns: 1fr 2em; */
+    grid-template-columns: 1fr 2em;
     width: 80vw;
 }
 
 .education-card{
     border:solid saddlebrown 2px;
     display:grid;
-    grid-template-columns: 2em 1fr 2em;
+    grid-template-columns: 1fr 1fr 1fr 2em;
     grid-template-rows: 1fr;
-    grid-column-start:1;
-    grid-column-end:-1;
+    grid-column-start: 1;
+    grid-column-end: -1;
     height: 3em;
 }
 .education-details{
