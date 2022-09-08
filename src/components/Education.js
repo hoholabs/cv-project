@@ -31,6 +31,7 @@ class Education extends Component{
     }
 
     handleChange = (event) =>{
+
         const target = event.target;
         const value = target.value;
         const name = target.name;
@@ -80,8 +81,8 @@ class Education extends Component{
 
                     {/* this shows 'new card' when the section is in edit mode */}
                     {this.state.editingSection && (
-                        <div id = 'new-education-card' className = 'education-card'>
-                            <form className = 'education-details'>
+
+                            <form className = 'education-card'>
                                 <input 
                                     type = 'text'
                                     placeholder = 'school' 
@@ -103,10 +104,8 @@ class Education extends Component{
                                     value={this.state.card.dates}
                                     onChange = {this.handleChange}>
                                 </input>
-                                
+                                 <button className = 'material-icon' onClick = {this.handleSubmit}>add_circle</button> 
                             </form>
-                            <button className = 'material-icon' onClick = {this.handleSubmit}>add_circle</button> 
-                        </div>
                     )}
                 </section>
         }
