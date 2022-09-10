@@ -11,6 +11,7 @@ class Education extends Component{
                 program: '',
                 dates: '',
                 key: new Date().getTime(),
+                id: new Date().getTime(),
                 editingCard: false
             },
             editingSection: false,
@@ -18,6 +19,7 @@ class Education extends Component{
         }
 
         this.editSection = this.editSection.bind(this);
+        this.toggleEdit = this.toggleEdit.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
@@ -30,19 +32,52 @@ class Education extends Component{
         })
     }
 
-    handleChange = (event) =>{
+    toggleEdit= (id)=>{
+        console.log(id);
+        const newCards = this.state.cards.map(card=>{
+            if(card.id === id){
+                return {...card, editingCard : !card.editingCard}
+            }else{
+                return card
+            }
+        })
 
+        this.setState({
+            cards : newCards
+        })
+
+    }
+
+    handleChange = (event, id) =>{
         const target = event.target;
         const value = target.value;
         const name = target.name;
+        console.log(id);
 
-        this.setState({
-            card:{
-                ...this.state.card,
-                [name]: value,
-                key:new Date().getTime(),
-            }
-        })
+        let newCards = [];
+
+        if(id === undefined){
+            this.setState({
+                card:{
+                    ...this.state.card,
+                    [name]: value,
+                    key:new Date().getTime(),
+                }
+            })
+        }else{
+
+            newCards = this.state.cards.map(card=>{
+                if(card.id === id){
+                    return {...card, [name]:value}
+                }else{
+                    return card
+                }
+            })
+
+            this.setState({
+                cards:newCards
+            })
+        }
     }
 
     handleSubmit = (event) =>{
@@ -56,6 +91,7 @@ class Education extends Component{
                 program:'',
                 dates:'',
                 key:new Date().getTime(),
+                id: new Date().getTime(),
                 editingCard: false,
             }
         }))
@@ -68,9 +104,12 @@ class Education extends Component{
                     <button className = 'material-icon' onClick = {this.editSection}>{this.state.buttonLabel}</button> 
 
                     {/* returns all of the education cards, using the state cards */}
-                    {this.state.cards.map((card) =>{
-			            return  <EducationCard card = {card} key={card.key}
+                    {this.state.cards.map((eachCard) =>{
+			            return  <EducationCard 
+                                        card = {eachCard} 
+                                        key = {eachCard.id}
                                         editingSection = {this.state.editingSection}
+                                        toggleEdit = {this.toggleEdit}
                                         handleChange = {this.handleChange}
                                         handleSubmit = {this.handleSubmit}
                                     />
