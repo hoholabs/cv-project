@@ -75,9 +75,9 @@ class PersonalInfo extends React.Component {
                     </input>
 
                     <button 
-                        className = 'material-icon' 
+                        className = 'material-icon edit-btn'
                         onClick = {this.handleSubmit} 
-                        style={{backgroundColor: "green"}}
+
                     >check
                     </button>
                     
@@ -98,9 +98,8 @@ class PersonalInfo extends React.Component {
                     <div id = 'phone'>{this.state.phone}</div>
                     <div id = 'email'>{this.state.email}</div>
                     <button 
-                        className = 'material-icon' 
+                        className = 'material-icon edit-btn'
                         onClick = {this.editSection}
-                        style={{backgroundColor: "green"}}
                     >edit
                     </button>
                     <h1 id = 'name'>{this.state.fullName}</h1>

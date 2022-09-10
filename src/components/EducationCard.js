@@ -22,8 +22,8 @@ class EducationCard extends Component{
                                 {this.props.editingSection && 
                                 <button 
                                         onClick = {() =>{this.props.toggleEdit(this.props.card.id)}} 
-                                        className = 'material-icon' 
-                                        style={{backgroundColor: "green"}} 
+                                        className = 'material-icon edit-btn'
+
                                         >edit
                                 </button>}
                         </ul> 
@@ -60,9 +60,9 @@ class EducationCard extends Component{
                                 onChange = {(event) => this.props.handleChange(event, this.props.card.id)}>
                                 </input>
 
-                                <button className = 'material-icon' 
+                                <button className = 'material-icon edit-btn'
                                         onClick = {() =>{this.props.toggleEdit(this.props.card.id)}}
-                                        style={{backgroundColor: "green"}}
+
                                         >check
                                 </button> 
                         </form>

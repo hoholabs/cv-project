@@ -85,20 +85,6 @@ h1{
     border-radius: .2em;
 }
 
-
-.edit{
-    font-family: 'Material Icons';
-    font-weight: normal;
-    font-style: normal;
-
-    /* grid-area: 1/1; */
-    text-align: center;
-    height: 2em;
-    width: 2em;
-    color: white;
-    background-color: grey;
-    border: none;
-    border-radius: .2em;
-    /* position: relative; */
-    right:0;
+.edit-btn{
+    background-color:green;
 }

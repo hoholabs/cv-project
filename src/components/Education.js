@@ -14,8 +14,8 @@ class Education extends Component{
                 id: new Date().getTime(),
                 editingCard: false
             },
-            editingSection: false,
-            buttonLabel: 'edit',
+            editingSection: true,
+            buttonLabel: 'check',
         }
 
         this.editSection = this.editSection.bind(this);
@@ -115,9 +115,9 @@ class Education extends Component{
         return  <section id = 'education'>  
                     <h1>Education</h1>
                     <button 
-                        className = 'material-icon' 
+                        className = 'material-icon edit-btn'
                         onClick = {this.editSection}
-                        style={{backgroundColor: "green"}}
+                        
                     >{this.state.buttonLabel}
                     </button> 
 
@@ -161,7 +161,11 @@ class Education extends Component{
                                     value={this.state.card.dates}
                                     onChange = {this.handleChange}>
                                 </input>
-                                 <button className = 'material-icon' onClick = {this.handleSubmit}>add_circle</button> 
+                                 <button 
+                                    className = 'material-icon edit-btn'
+                                    onClick = {this.handleSubmit}
+                                >add_circle
+                                </button> 
                             </form>
                     )}
                 </section>
