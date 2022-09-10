@@ -47,30 +47,28 @@ h1{
     grid-column-end: -1;
     height: 3em;
 }
-.education-details{
-    display:grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr;
-    grid-column-start:1;
-    grid-column-end:-2;
-}
 
 #experience{
     border: solid orange 2px;
     display:grid;
-    grid-template-columns: 2em 1fr 1fr 1fr 2em;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 2em;
+
 }
 .experience-card{
     border:solid rgb(112, 104, 170) 2px;
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr 2em;
+    grid-template-columns: 2em 1fr 1fr 1fr 2em;
     grid-template-rows: 1fr;
     height: 3em;
-    grid-column-start: 2;
+    grid-column-start: 1;
     grid-column-end: -1;
+    padding: 0;
 }
 
+.description{
+    grid-column-start: 2;
+    grid-column-end: -2;
+}
 
 .material-icon{
     font-family: 'Material Icons';

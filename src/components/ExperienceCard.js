@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-class EducationCard extends Component{
+class ExperienceCard extends Component{
         constructor (props){
                 super(props)
                 this.state = {}
@@ -12,10 +12,10 @@ class EducationCard extends Component{
                 !this.props.card.editingCard || this.props.editingSection === false
 
                 ? 
-                        <ul className = 'education-card'>
+                        <ul className = 'experience-card'>
                                 <li></li>
-                                <li className = 'school'>{this.props.card.school}</li>
-                                <li className = 'program'>{this.props.card.program}</li>
+                                <li className = 'title'>{this.props.card.title}</li>
+                                <li className = 'company'>{this.props.card.company}</li>
                                 <li className = 'dates'>{this.props.card.dates}</li>
                                 {this.props.editingSection && 
                                 <button 
@@ -23,10 +23,11 @@ class EducationCard extends Component{
                                         className = 'material-icon edit-btn'
                                         >edit
                                 </button>}
+                                <li className= 'description'>{this.props.card.description}</li>
                         </ul> 
                         
                 : 
-                        <form className = 'education-card'>
+                        <form className = 'experience-card'>
                                 <button 
                                         className = 'material-icon' 
                                         onClick = {(event)=>{this.props.removeCard(event, this.props.card.id)}} 
@@ -35,17 +36,17 @@ class EducationCard extends Component{
                                 </button>
                                 <input 
                                 type = 'text'
-                                placeholder = 'school' 
-                                name = 'school' 
-                                value={this.props.card.school}
+                                placeholder = 'title' 
+                                name = 'title' 
+                                value={this.props.card.title}
                                 onChange = {(event) => this.props.handleChange(event, this.props.card.id)}>
                                 </input>
 
                                 <input 
                                 type = 'text'   
-                                placeholder = 'program' 
-                                name = 'program'
-                                value={this.props.card.program}
+                                placeholder = 'company' 
+                                name = 'company'
+                                value={this.props.card.company}
                                 onChange = {(event) => this.props.handleChange(event, this.props.card.id)}>
                                 </input>
 
@@ -56,15 +57,24 @@ class EducationCard extends Component{
                                 value={this.props.card.dates}
                                 onChange = {(event) => this.props.handleChange(event, this.props.card.id)}>
                                 </input>
-
-                                <button className = 'material-icon edit-btn'
+                                <button 
+                                        className = 'material-icon edit-btn'
                                         onClick = {() =>{this.props.toggleEdit(this.props.card.id)}}
 
-                                        >check
-                                </button> 
+                                >check
+                                </button>
+                                <input 
+                                className = 'description'
+                                type = 'textarea'   
+                                placeholder = 'description' 
+                                name = 'description' 
+                                value={this.props.card.description}
+                                onChange = {(event) => this.props.handleChange(event, this.props.card.id)}>
+                                </input>
+
                         </form>
                 )
         }
 }
 
-export default EducationCard
+export default ExperienceCard

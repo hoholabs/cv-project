@@ -7,11 +7,13 @@ import Experience from './components/Experience';
 function App() {
   return (
     <div id="app">
+      
       <PersonalInfo/>
 
       <Education/>
 
       <Experience/>
+
     </div>
   );
 }

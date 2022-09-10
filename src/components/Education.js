@@ -34,7 +34,7 @@ class Education extends Component{
     }
 
     toggleEdit= (id)=>{
-        console.log(id);
+
         const newCards = this.state.cards.map(card=>{
             if(card.id === id){
                 return {...card, editingCard : !card.editingCard}
@@ -53,7 +53,6 @@ class Education extends Component{
         const target = event.target;
         const value = target.value;
         const name = target.name;
-        console.log(id);
 
         let newCards = [];
 
@@ -124,16 +123,16 @@ class Education extends Component{
                     {/* returns all of the education cards, using the state cards */}
                     {this.state.cards.map((eachCard) =>{
 			            return  <EducationCard 
-                                        card = {eachCard} 
-                                        key = {eachCard.id}
-                                        editingSection = {this.state.editingSection}
-                                        toggleEdit = {this.toggleEdit}
-                                        handleChange = {this.handleChange}
-                                        handleSubmit = {this.handleSubmit}
-                                        removeCard = {this.removeCard}
-                                    />
+                                    card = {eachCard} 
+                                    key = {eachCard.id}
+                                    editingSection = {this.state.editingSection}
+                                    toggleEdit = {this.toggleEdit}
+                                    handleChange = {this.handleChange}
+                                    handleSubmit = {this.handleSubmit}
+                                    removeCard = {this.removeCard}
+                        />
                             
-                        })}
+                    })}
 
                     {/* this shows 'new card' when the section is in edit mode */}
                     {this.state.editingSection && (
