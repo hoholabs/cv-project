@@ -42,7 +42,12 @@ class Experience extends Component{
     render(){
         return  <section id = 'experience'>
                     <h1>Experience</h1>
-                    <button className = 'material-icon' onClick = {this.editSection}>{this.state.buttonLabel}</button> 
+                    <button 
+                        className = 'material-icon' 
+                        onClick = {this.editSection}
+                        style={{backgroundColor: "green"}}
+                    >{this.state.buttonLabel}
+                    </button> 
 
                     {this.state.cards.map((card) =>{
                         return this.state.editingSection ? 

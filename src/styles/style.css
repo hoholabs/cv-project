@@ -41,7 +41,7 @@ h1{
 .education-card{
     border:solid saddlebrown 2px;
     display:grid;
-    grid-template-columns: 1fr 1fr 1fr 2em;
+    grid-template-columns: 2em 1fr 1fr 1fr 2em;
     grid-template-rows: 1fr;
     grid-column-start: 1;
     grid-column-end: -1;
@@ -80,7 +80,7 @@ h1{
     height: 2em;
     width: 2em;
     color: white;
-    background-color: green;
+    /* background-color:white; */
     border: none;
     border-radius: .2em;
 }

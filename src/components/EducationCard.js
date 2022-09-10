@@ -11,23 +11,31 @@ class EducationCard extends Component{
         render(){
 
         return (
-                !this.props.card.editingCard 
+                !this.props.card.editingCard || this.props.editingSection === false
 
                 ? 
                         <ul className = 'education-card'>
-                        <li className = 'school'>{this.props.card.school}</li>
-                        <li className = 'program'>{this.props.card.program}</li>
-                        <li className = 'dates'>{this.props.card.dates}</li>
-                        {this.props.editingSection && 
-                        <button 
-                                onClick = {() =>{this.props.toggleEdit(this.props.card.id)}} 
-                                className = 'material-icon' >
-                        edit
-                        </button>}
+                               <li></li>
+                                <li className = 'school'>{this.props.card.school}</li>
+                                <li className = 'program'>{this.props.card.program}</li>
+                                <li className = 'dates'>{this.props.card.dates}</li>
+                                {this.props.editingSection && 
+                                <button 
+                                        onClick = {() =>{this.props.toggleEdit(this.props.card.id)}} 
+                                        className = 'material-icon' 
+                                        style={{backgroundColor: "green"}} 
+                                        >edit
+                                </button>}
                         </ul> 
                         
                 : 
                         <form className = 'education-card'>
+                                <button 
+                                        className = 'material-icon' 
+                                        onClick = {(event)=>{this.props.removeCard(event, this.props.card.id)}} 
+                                        style={{backgroundColor: "red"}}
+                                        >delete
+                                </button>
                                 <input 
                                 type = 'text'
                                 placeholder = 'school' 
@@ -53,8 +61,10 @@ class EducationCard extends Component{
                                 </input>
 
                                 <button className = 'material-icon' 
-                                        onClick = {() =>{this.props.toggleEdit(this.props.card.id)}} 
-                                >check</button> 
+                                        onClick = {() =>{this.props.toggleEdit(this.props.card.id)}}
+                                        style={{backgroundColor: "green"}}
+                                        >check
+                                </button> 
                         </form>
                 )
         }

@@ -74,7 +74,12 @@ class PersonalInfo extends React.Component {
                         placeholder = 'email'>
                     </input>
 
-                    <button className = 'material-icon' onClick = {this.handleSubmit} >check</button>
+                    <button 
+                        className = 'material-icon' 
+                        onClick = {this.handleSubmit} 
+                        style={{backgroundColor: "green"}}
+                    >check
+                    </button>
                     
                     <input 
                         id = 'name'
@@ -92,7 +97,12 @@ class PersonalInfo extends React.Component {
                     <div id = 'address'>{this.state.address}</div>
                     <div id = 'phone'>{this.state.phone}</div>
                     <div id = 'email'>{this.state.email}</div>
-                    <button className = 'material-icon' onClick = {this.editSection} >edit</button>
+                    <button 
+                        className = 'material-icon' 
+                        onClick = {this.editSection}
+                        style={{backgroundColor: "green"}}
+                    >edit
+                    </button>
                     <h1 id = 'name'>{this.state.fullName}</h1>
                 </div>}
         </section>

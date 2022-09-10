@@ -10,7 +10,7 @@ class Education extends Component{
                 school: '',
                 program: '',
                 dates: '',
-                key: new Date().getTime(),
+
                 id: new Date().getTime(),
                 editingCard: false
             },
@@ -22,6 +22,7 @@ class Education extends Component{
         this.toggleEdit = this.toggleEdit.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.removeCard = this.removeCard.bind(this);
     }
 
     editSection = () =>{
@@ -97,11 +98,28 @@ class Education extends Component{
         }))
     }
 
+    removeCard = (event, id) =>{
+        event.preventDefault()
+        
+        const index = this.state.cards.findIndex((card)=>card.id === id)
+        let newCards = this.state.cards
+        newCards.pop(index);
+
+        this.setState({
+            cards:newCards
+        })
+    }
+
     render (){
 
         return  <section id = 'education'>  
                     <h1>Education</h1>
-                    <button className = 'material-icon' onClick = {this.editSection}>{this.state.buttonLabel}</button> 
+                    <button 
+                        className = 'material-icon' 
+                        onClick = {this.editSection}
+                        style={{backgroundColor: "green"}}
+                    >{this.state.buttonLabel}
+                    </button> 
 
                     {/* returns all of the education cards, using the state cards */}
                     {this.state.cards.map((eachCard) =>{
@@ -112,16 +130,16 @@ class Education extends Component{
                                         toggleEdit = {this.toggleEdit}
                                         handleChange = {this.handleChange}
                                         handleSubmit = {this.handleSubmit}
+                                        removeCard = {this.removeCard}
                                     />
                             
                         })}
-
-                    {/* <EducationCard card = {this.state.card} key = {this.state.card.key}/> */}
 
                     {/* this shows 'new card' when the section is in edit mode */}
                     {this.state.editingSection && (
 
                             <form className = 'education-card'>
+                                <div></div>
                                 <input 
                                     type = 'text'
                                     placeholder = 'school' 
