@@ -7,20 +7,7 @@ class Experience extends Component{
         super(props)
 
         this.state = {
-            cards : [{title : '',
-            company : '',
-            dates : '',
-            description: '',
-            editingCard: true,
-            id: new Date().getTime()}],
-            card : {
-                title : '',
-                company : '',
-                dates : '',
-                description: '',
-                editingCard: true,
-                id: new Date().getTime()+1,
-            },
+            cards : [],
             editingSection : true,
             buttonLabel : 'check',
         }
@@ -33,10 +20,10 @@ class Experience extends Component{
     }
 
     editSection = () => {
-        console.log('editing section')
+        let currentSetting = this.state.editingSection;
 
         this.setState({
-            editingSection: true,
+            editingSection: !currentSetting,
             buttonLabel : this.state.buttonLabel === 'check'? 'edit' : 'check'
         })
     }
@@ -62,7 +49,14 @@ class Experience extends Component{
     }
 
     addCard = () =>{
-        let newCard = this.state.card
+        let newCard = {
+            title : '',
+            company : '',
+            dates : '',
+            description: '',
+            editingCard: true,
+            id: new Date().getTime()+1,
+        }
 
         this.setState({
             cards: [...this.state.cards, newCard]
@@ -127,12 +121,13 @@ class Experience extends Component{
                             removeCard = {this.removeCard}
                         />
                     })}
-
-                    <button 
-                        className = 'material-icon edit-btn' 
-                        onClick = {this.addCard}
-                    >add_circle
-                    </button> 
+                    {this.state.editingSection &&
+                        <button 
+                            className = 'material-icon edit-btn' 
+                            onClick = {this.addCard}
+                        >add_circle
+                        </button>
+                    }
                     
 
                 </section>
