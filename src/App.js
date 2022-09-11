@@ -9,9 +9,9 @@ function App() {
     <div id="app">
       
       <PersonalInfo/>
-
+      <div className = 'divider'></div>
       <Education/>
-
+      <div className = 'divider'></div>
       <Experience/>
 
     </div>
