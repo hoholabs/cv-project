@@ -1,10 +1,6 @@
 import React, {Component} from 'react'
 
 class ExperienceCard extends Component{
-        constructor (props){
-                super(props)
-                this.state = {}
-        }
 
         render(){
 
