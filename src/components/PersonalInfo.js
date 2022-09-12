@@ -51,27 +51,33 @@ class PersonalInfo extends React.Component {
                 <form className = 'personal'>
                     <div></div>
                     <input 
+                        className = 'personal-item'
                         type = 'text'
                         value={this.state.address} 
                         name = 'address' 
                         onChange = {this.handleChange} 
-                        placeholder = 'address'>
+                        placeholder = 'Address'
+                        required>
                     </input>
 
                     <input 
-                        type = 'text'
+                        className = 'personal-item'
+                        type = 'tel'
+                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                         value={this.state.phone} 
                         name = 'phone' 
                         onChange = {this.handleChange} 
-                        placeholder = 'phone'>
+                        placeholder = 'Phone number'>
                     </input>
 
                     <input 
-                        type = 'text'
+                        className = 'personal-item'
+                        type = 'email'
+                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                         value={this.state.email} 
                         name = 'email' 
                         onChange = {this.handleChange} 
-                        placeholder = 'email'>
+                        placeholder = 'E-mail'>
                     </input>
 
                     <button 
@@ -82,27 +88,28 @@ class PersonalInfo extends React.Component {
                     </button>
                     
                     <input 
+                        className = 'personal-item'
                         id = 'name'
                         type = 'text'
                         value= {this.state.fullName} 
                         name = 'fullName' 
                         onChange = {this.handleChange} 
-                        placeholder = 'fullName'>
+                        placeholder = 'Full Name'>
                     </input>
 
                 </form> : 
             
                 <div className = 'personal'>
                     <div></div>
-                    <div id = 'address'>{this.state.address}</div>
-                    <div id = 'phone'>{this.state.phone}</div>
-                    <div id = 'email'>{this.state.email}</div>
+                    <div className = 'personal-item' id = 'address'>{this.state.address}</div>
+                    <div className = 'personal-item' id = 'phone'>{this.state.phone}</div>
+                    <div className = 'personal-item' id = 'email'>{this.state.email}</div>
                     <button 
                         className = 'material-icon edit-btn'
                         onClick = {this.editSection}
                     >edit
                     </button>
-                    <h1 id = 'name'>{this.state.fullName}</h1>
+                    <h1 className = 'personal-item' id = 'name'>{this.state.fullName}</h1>
                 </div>}
         </section>
     }
