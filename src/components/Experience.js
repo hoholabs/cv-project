@@ -7,7 +7,14 @@ class Experience extends Component{
         super(props)
 
         this.state = {
-            cards : [],
+            cards : [{
+                title : '',
+                company : '',
+                dates : '',
+                description: '',
+                editingCard: true,
+                id: new Date().getTime()+1,
+            }],
             editingSection : true,
             buttonLabel : 'check',
         }

@@ -83,19 +83,16 @@ section{
 }
 
 #experience{
-
     display:grid;
     grid-template-columns: 1fr 3em;
     color: var(--main-font-color);
-
-
 }
-.experience-card{
 
+.experience-card{
     display:grid;
     grid-template-columns: 3em 1fr 1fr 1fr 3em;
-    grid-template-rows: 1fr;
-    height: 3em;
+    grid-template-rows: auto auto;
+    /* height: 3em; */
     grid-column-start: 1;
     grid-column-end: -1;
     padding: 0;
@@ -104,6 +101,10 @@ section{
 .description{
     grid-column-start: 2;
     grid-column-end: -2;
+    grid-row-start: 2;
+    grid-row-end: 3;
+    height: 3rem;
+    white-space: pre-wrap;
 }
 
 .material-icon{
@@ -121,5 +122,5 @@ section{
 
 .edit-btn{
     background-color:green;
-    
+    margin-top: 1rem;
 }

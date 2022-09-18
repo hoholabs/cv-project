@@ -5,7 +5,14 @@ class Education extends Component{
     constructor(props){
         super(props)
         this.state = {
-            cards:[],
+            cards:[{
+                school:'',
+                program:'',
+                dates:'',
+                key:new Date().getTime(),
+                id: new Date().getTime(),
+                editingCard: true,
+            }],
             card:{
                 school: '',
                 program: '',
@@ -61,7 +68,7 @@ class Education extends Component{
                 card:{
                     ...this.state.card,
                     [name]: value,
-                    key:new Date().getTime(),
+                    id:new Date().getTime(),
                 }
             })
         }else{
@@ -109,6 +116,21 @@ class Education extends Component{
         })
     }
 
+    addCard = () =>{
+        let newCard = {
+            school : '',
+            program : '',
+            dates : '',
+            editingCard: true,
+            id: new Date().getTime()+1,
+        }
+
+        this.setState({
+            cards: [...this.state.cards, newCard]
+        })
+
+    }
+
     render (){
 
         return  <section id = 'education'>  
@@ -134,39 +156,14 @@ class Education extends Component{
                             
                     })}
 
-                    {/* this shows 'new card' when the section is in edit mode */}
-                    {this.state.editingSection && (
+                    {this.state.editingSection &&
+                        <button 
+                            className = 'material-icon edit-btn' 
+                            onClick = {this.addCard}
+                        >add_circle
+                        </button>
+                    }
 
-                            <form className = 'education-card'>
-                                <div></div>
-                                <input 
-                                    type = 'text'
-                                    placeholder = 'school' 
-                                    name = 'school' 
-                                    value={this.state.card.school}
-                                    onChange = {this.handleChange}>
-                                </input>
-                                <input 
-                                    type = 'text'   
-                                    placeholder = 'program' 
-                                    name = 'program'
-                                    value={this.state.card.program}
-                                    onChange = {this.handleChange}>
-                                </input>
-                                <input 
-                                    type = 'text'   
-                                    placeholder = 'dates' 
-                                    name = 'dates' 
-                                    value={this.state.card.dates}
-                                    onChange = {this.handleChange}>
-                                </input>
-                                 <button 
-                                    className = 'material-icon edit-btn'
-                                    onClick = {this.handleSubmit}
-                                >add_circle
-                                </button> 
-                            </form>
-                    )}
                 </section>
         }
 }
