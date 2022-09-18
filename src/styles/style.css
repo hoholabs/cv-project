@@ -14,7 +14,7 @@
     margin:auto;
     margin-top: 1vw;
     background-color: var(--main-bg-color);
-    font-size: .7em;
+    font-size: 1rem;
 }
 
 ul{
@@ -61,7 +61,7 @@ h1{
     grid-column-end:-2;
 }
 section{
-    padding: 0;
+    padding: 1rem;
 }
 
 #education{
@@ -105,6 +105,8 @@ section{
     grid-row-end: 3;
     height: 3rem;
     white-space: pre-wrap;
+    padding-top: 1rem;
+    font-size: .8rem;
 }
 
 .material-icon{
