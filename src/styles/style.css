@@ -79,6 +79,8 @@ section{
     grid-column-start: 1;
     grid-column-end: -1;
     height: 3em;
+    align-items: center;
+    margin: 0;
     padding: 0;
 }
 

@@ -30,6 +30,8 @@ class Education extends Component{
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.removeCard = this.removeCard.bind(this);
+        this.addCard = this.addCard.bind(this);
+
     }
 
     editSection = () =>{
