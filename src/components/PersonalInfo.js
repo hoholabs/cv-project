@@ -1,61 +1,40 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react'
 
-class PersonalInfo extends React.Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            address: '',
-            phone: '',
-            email: '',
-            fullName: '',
-            editing: true
+function PersonalInfo(props){
+
+    const [address, setAddress] = useState('')
+    const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState('')
+    const [fullName, setFullName] = useState('')
+    const [editing, setEditing] = useState(true)
+
+    useEffect(()=>{
+
+    },[editing]);
+
+    function toggleEdit(event){
+        
+        event.preventDefault();
+        
+        if(editing === true){
+            setEditing(false)
+        }else{
+            setEditing(true)
         }
 
-        this.editSection = this.editSection.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        console.log('clicked');
     }
 
-    editSection = () =>{
-
-        this.setState({
-            editing: true
-        })
-    }
-
-    handleChange = (event) =>{
-        const target = event.target;
-        const value = target.value;
-        const name = target.name;
-
-        this.setState({
-            [name] : value
-        })
-
-        console.log(name)
-
-    }
-
-    handleSubmit = (e) =>{
-        e.preventDefault();
-
-        this.setState({
-            editing: false
-        })
-    }
-
-    render(){
         return  <section>
-            {this.state.editing ? 
+            {editing ? 
             
                 <form className = 'personal'>
                     <div></div>
                     <input 
                         className = 'personal-item'
                         type = 'text'
-                        value={this.state.address} 
-                        name = 'address' 
-                        onChange = {this.handleChange} 
+                        name = 'address'
+                        onChange = {event => setAddress(event.target.value)} 
                         placeholder = 'Address'
                         required>
                     </input>
@@ -63,27 +42,24 @@ class PersonalInfo extends React.Component {
                     <input 
                         className = 'personal-item'
                         type = 'tel'
-                        pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
-                        value={this.state.phone} 
+                        // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                         name = 'phone' 
-                        onChange = {this.handleChange} 
+                        onChange = {event => setPhone(event.target.value)} 
                         placeholder = 'Phone number'>
                     </input>
 
                     <input 
                         className = 'personal-item'
                         type = 'email'
-                        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-                        value={this.state.email} 
+                        // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                         name = 'email' 
-                        onChange = {this.handleChange} 
+                        onChange = {event => setEmail(event.target.value)} 
                         placeholder = 'E-mail'>
                     </input>
 
                     <button 
                         className = 'material-icon edit-btn'
-                        onClick = {this.handleSubmit} 
-
+                        onClick={event => toggleEdit(event)}
                     >check
                     </button>
                     
@@ -91,9 +67,8 @@ class PersonalInfo extends React.Component {
                         className = 'personal-item'
                         id = 'name'
                         type = 'text'
-                        value= {this.state.fullName} 
                         name = 'fullName' 
-                        onChange = {this.handleChange} 
+                        onChange = {event => setFullName(event.target.value)} 
                         placeholder = 'Full Name'>
                     </input>
 
@@ -101,18 +76,18 @@ class PersonalInfo extends React.Component {
             
                 <div className = 'personal'>
                     <div></div>
-                    <div className = 'personal-item' id = 'address'>{this.state.address}</div>
-                    <div className = 'personal-item' id = 'phone'>{this.state.phone}</div>
-                    <div className = 'personal-item' id = 'email'>{this.state.email}</div>
+                    <div className = 'personal-item' id = 'address'>{address}</div>
+                    <div className = 'personal-item' id = 'phone'>{phone}</div>
+                    <div className = 'personal-item' id = 'email'>{email}</div>
                     <button 
                         className = 'material-icon edit-btn'
-                        onClick = {this.editSection}
+                        onClick={event => toggleEdit(event)}
                     >edit
                     </button>
-                    <h1 className = 'personal-item' id = 'name'>{this.state.fullName}</h1>
+                    <h1 className = 'personal-item' id = 'name'>{fullName}</h1>
                 </div>}
         </section>
-    }
-}
+    
+};
 
 export default PersonalInfo
