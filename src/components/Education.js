@@ -6,7 +6,7 @@ const initialEducation = {
     program:'',
     dates:'',
     id: new Date().getTime(),
-    editingCard: true,
+    editingCard: true   
 }
 
 function Education(props){
@@ -74,44 +74,37 @@ function Education(props){
 
     const addCard = () =>{
 
-        setCards({
-            cards: [...cards, initialEducation]
-        })
+        setCards([...cards, initialEducation])
 
     }
 
     return  <section id = 'education'>  
-                <h1>Education</h1>
-                <button 
-                    className = 'material-icon edit-btn'
-                    onClick = {editSection}
-                    
-                >{buttonLabel}
-                </button> 
-
-                {/* returns all of the education cards, using the state cards */}
-                {cards.map((eachCard) =>{
-                    return  <EducationCard 
-                                card = {eachCard} 
-                                key = {eachCard.id}
-                                editingSection = {editingSection}
-                                toggleEdit = {toggleEdit}
-                                handleChange = {handleChange}
-                                removeCard = {removeCard}
-                    />
-                        
-                })}
-
-                {editingSection &&
-                    <button 
-                        className = 'material-icon edit-btn' 
-                        onClick = {addCard}
-                    >add_circle
-                    </button>
-                }
-
-            </section>
-    
+        <h1>Education</h1>
+        <button 
+            className = 'material-icon edit-btn'
+            onClick = {editSection}
+            
+        >{buttonLabel}
+        </button> 
+        {cards.map((eachCard) =>{
+            return  <EducationCard 
+                card = {eachCard} 
+                key = {eachCard.id}
+                editingSection = {editingSection}
+                toggleEdit = {toggleEdit}
+                handleChange = {handleChange}
+                removeCard = {removeCard}
+            />
+                
+        })}
+        {editingSection &&
+            <button 
+                className = 'material-icon edit-btn' 
+                onClick = {addCard}
+            >add_circle
+            </button>
+        }
+    </section>
 }
 
 export default Education
