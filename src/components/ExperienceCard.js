@@ -1,32 +1,30 @@
-import React, {Component} from 'react'
+import React from 'react'
 
-class ExperienceCard extends Component{
-
-        render(){
+function ExperienceCard(props){
 
         return (
-                !this.props.card.editingCard || this.props.editingSection === false
+                !props.card.editingCard || props.editingSection === false
 
                 ? 
                         <ul className = 'experience-card'>
                                 <li></li>
-                                <li className = 'title'>{this.props.card.title}</li>
-                                <li className = 'company'>{this.props.card.company}</li>
-                                <li className = 'dates'>{this.props.card.dates}</li>
-                                {this.props.editingSection && 
+                                <li className = 'title'>{props.card.title}</li>
+                                <li className = 'company'>{props.card.company}</li>
+                                <li className = 'dates'>{props.card.dates}</li>
+                                {props.editingSection && 
                                 <button 
-                                        onClick = {() =>{this.props.toggleEdit(this.props.card.id)}} 
+                                        onClick = {() =>{props.toggleEdit(props.card.id)}} 
                                         className = 'material-icon edit-btn'
                                         >edit
                                 </button>}
-                                <li className= 'description'>{this.props.card.description}</li>
+                                <li className= 'description'>{props.card.description}</li>
                         </ul> 
                         
                 : 
                         <form className = 'experience-card'>
                                 <button 
                                         className = 'material-icon' 
-                                        onClick = {(event)=>{this.props.removeCard(event, this.props.card.id)}} 
+                                        onClick = {(event)=>{props.removeCard(event, props.card.id)}} 
                                         style={{backgroundColor: "red"}}
                                         >delete
                                 </button>
@@ -34,28 +32,28 @@ class ExperienceCard extends Component{
                                 type = 'text'
                                 placeholder = 'title' 
                                 name = 'title' 
-                                value={this.props.card.title}
-                                onChange = {(event) => this.props.handleChange(event, this.props.card.id)}>
+                                value={props.card.title}
+                                onChange = {(event) => props.handleChange(event, props.card.id)}>
                                 </input>
 
                                 <input 
                                 type = 'text'   
                                 placeholder = 'company' 
                                 name = 'company'
-                                value={this.props.card.company}
-                                onChange = {(event) => this.props.handleChange(event, this.props.card.id)}>
+                                value={props.card.company}
+                                onChange = {(event) => props.handleChange(event, props.card.id)}>
                                 </input>
 
                                 <input 
                                 type = 'text'   
                                 placeholder = 'dates' 
                                 name = 'dates' 
-                                value={this.props.card.dates}
-                                onChange = {(event) => this.props.handleChange(event, this.props.card.id)}>
+                                value={props.card.dates}
+                                onChange = {(event) => props.handleChange(event, props.card.id)}>
                                 </input>
                                 <button 
                                         className = 'material-icon edit-btn'
-                                        onClick = {() =>{this.props.toggleEdit(this.props.card.id)}}
+                                        onClick = {() =>{props.toggleEdit(props.card.id)}}
 
                                 >check
                                 </button>
@@ -64,13 +62,13 @@ class ExperienceCard extends Component{
                                 type = 'textarea'   
                                 placeholder = 'description' 
                                 name = 'description' 
-                                value={this.props.card.description}
-                                onChange = {(event) => this.props.handleChange(event, this.props.card.id)}>
+                                value={props.card.description}
+                                onChange = {(event) => props.handleChange(event, props.card.id)}>
                                 </input>
 
                         </form>
                 )
-        }
+        
 }
 
 export default ExperienceCard
