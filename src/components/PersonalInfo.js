@@ -1,16 +1,34 @@
 import React, {useState, useEffect} from 'react'
 
+const initialPersonal = {
+    address: '',
+    phone: '',
+    email: '',
+    fullName: '',
+}
+
 function PersonalInfo(props){
 
-    const [address, setAddress] = useState('')
-    const [phone, setPhone] = useState('')
-    const [email, setEmail] = useState('')
-    const [fullName, setFullName] = useState('')
+    const [personal, setPersonal] = useState(initialPersonal)
+    const {address, phone, email, fullName } = personal;
     const [editing, setEditing] = useState(true)
 
     useEffect(()=>{
 
     },[editing]);
+
+    function handleChange(event){
+        let name = event.target.name;
+        let value = event.target.value;
+
+        setPersonal(()=>{
+            return{
+                ...personal,
+                [name]:value
+            };
+        });
+
+    }
 
     function toggleEdit(event){
         
@@ -34,7 +52,8 @@ function PersonalInfo(props){
                         className = 'personal-item'
                         type = 'text'
                         name = 'address'
-                        onChange = {event => setAddress(event.target.value)} 
+                        value = {personal.address}
+                        onChange = {handleChange} 
                         placeholder = 'Address'
                         required>
                     </input>
@@ -44,7 +63,8 @@ function PersonalInfo(props){
                         type = 'tel'
                         // pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                         name = 'phone' 
-                        onChange = {event => setPhone(event.target.value)} 
+                        value = {personal.phone}
+                        onChange = {handleChange} 
                         placeholder = 'Phone number'>
                     </input>
 
@@ -53,7 +73,8 @@ function PersonalInfo(props){
                         type = 'email'
                         // pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
                         name = 'email' 
-                        onChange = {event => setEmail(event.target.value)} 
+                        value = {personal.email}
+                        onChange = {handleChange} 
                         placeholder = 'E-mail'>
                     </input>
 
@@ -68,7 +89,8 @@ function PersonalInfo(props){
                         id = 'name'
                         type = 'text'
                         name = 'fullName' 
-                        onChange = {event => setFullName(event.target.value)} 
+                        value = {personal.fullName}
+                        onChange = {handleChange} 
                         placeholder = 'Full Name'>
                     </input>
 
