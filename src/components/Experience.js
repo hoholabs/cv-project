@@ -51,9 +51,8 @@ function Experience(props){
     }
 
     const addCard = () =>{
-
-        setCards([...cards, initialExperience])
-
+        let newCard = {...initialExperience, id: new Date().getTime()}
+        setCards([...cards, newCard])
     }
 
     const toggleEdit = (id) =>{

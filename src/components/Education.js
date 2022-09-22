@@ -73,9 +73,8 @@ function Education(props){
     }
 
     const addCard = () =>{
-
-        setCards([...cards, initialEducation])
-
+        let newCard = {...initialEducation, id: new Date().getTime()}
+        setCards([...cards, newCard])
     }
 
     return  <section id = 'education'>  
