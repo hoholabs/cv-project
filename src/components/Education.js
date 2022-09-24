@@ -28,7 +28,9 @@ function Education(props) {
         }
     };
 
-    const toggleEdit = (id) => {
+    const toggleEdit = (event, id) => {
+        event.preventDefault();
+
         const newCards = cards.map((card) => {
             if (card.id === id) {
                 return { ...card, editingCard: !card.editingCard };

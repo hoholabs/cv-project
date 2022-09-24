@@ -9,9 +9,7 @@ function EducationCard(props) {
             <li className="dates">{props.card.dates}</li>
             {props.editingSection && (
                 <button
-                    onClick={() => {
-                        props.toggleEdit(props.card.id);
-                    }}
+                    onClick={(event) => props.toggleEdit(event, props.card.id)}
                     className="material-icon edit-btn"
                 >
                     edit
@@ -55,9 +53,7 @@ function EducationCard(props) {
 
             <button
                 className="material-icon edit-btn"
-                onClick={() => {
-                    props.toggleEdit(props.card.id);
-                }}
+                onClick={(event) => props.toggleEdit(event, props.card.id)}
             >
                 check
             </button>
