@@ -64,19 +64,11 @@ function Experience(props) {
 
     const removeCard = (event, id) => {
         event.preventDefault();
-        const newCards = cards;
 
-        let index = newCards.findIndex((card) => {
-            if (card.id === id) {
-                return true;
-            } else {
-                return false;
-            }
-        });
-
-        newCards.slice(index, 1);
-
-        setCards(newCards);
+        const index = cards.findIndex((card) => card.id === id);
+        let newCards = cards;
+        newCards.splice(index, 1);
+        setCards([...newCards]);
     };
 
     return (
